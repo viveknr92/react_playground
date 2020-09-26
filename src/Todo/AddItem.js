@@ -13,7 +13,7 @@ const AddItem = ({onAddClick}) => {
         <form onSubmit={(e) => {
             e.preventDefault()
             e.target.reset()
-            console.log('form submit event', e)
+            // console.log('form submit event', e)
             onAddClick(text)
         }}>
             <input onChange={onTextChange} ref={inputEl}/>
