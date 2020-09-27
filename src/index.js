@@ -8,7 +8,7 @@ import App from './App';
 import Child from './Child'
 import Home from './Home'
 import Todo from './Todo/Todo'
-import AnotherChild from './AnotherChild'
+import VehicleTracker from './VehicleTracker'
 import { Provider } from 'react-redux'
 
 import { createStore, applyMiddleware } from 'redux'
@@ -26,7 +26,7 @@ const RouterWrapper = () => {
                     <Route path='/app' component={App}></Route>
                     <Route path='/child' component={Child}></Route>
                     <Route path='/todo' component={Todo}></Route>
-                    <Route path='/anotherchild' component={AnotherChild}></Route>
+                    <Route path='/vehicletracker' component={VehicleTracker}></Route>
                 </Switch>
             </BrowserRouter>
         </Provider>
