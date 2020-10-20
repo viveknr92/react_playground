@@ -1,9 +1,9 @@
-FROM node:12
-WORKDIR /usr/src/app
+FROM node:12.18.0
+WORKDIR /app
+RUN npm install -g serve
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
-RUN npm build
-RUN npm i -g serve
+RUN npm run build
 EXPOSE 5000
 CMD ["serve", "-s", "build"]
