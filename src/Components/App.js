@@ -9,6 +9,7 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="App">
+        <div>Learn react</div>
         <input onChange={this.onChange} ref={(input) => this.input = input} />
       </div>
     )
