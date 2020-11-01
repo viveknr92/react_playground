@@ -4,11 +4,12 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import App from './App';
-import Child from './Child'
-import Home from './Home'
+import App from './Components/App';
+import Child from './Components/Child'
+import Home from './Components/Home'
 import Todo from './Todo/Todo'
-import VehicleTracker from './VehicleTracker'
+import VehicleTracker from './Components/VehicleTracker'
+import SimpleCounter from './Components/SimpleCounter'
 import { Provider } from 'react-redux'
 
 import { createStore, applyMiddleware } from 'redux'
@@ -27,6 +28,7 @@ const RouterWrapper = () => {
                     <Route path='/child' component={Child}></Route>
                     <Route path='/todo' component={Todo}></Route>
                     <Route path='/vehicletracker' component={VehicleTracker}></Route>
+                    <Route path='/simpleCounter' component={SimpleCounter}></Route>
                 </Switch>
             </BrowserRouter>
         </Provider>
@@ -41,7 +43,7 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
+    module.hot.accept('./Components/App', () => {
       ReactDOM.render(
         <React.StrictMode>
           <App />
