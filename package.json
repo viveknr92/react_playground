@@ -7,7 +7,6 @@
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "axios": "^0.21.0",
@@ -144,7 +143,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^26.0.15",
+    "puppeteer": "^5.4.1",
     "redux-devtools": "^3.5.0"
   }
 }

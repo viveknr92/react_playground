@@ -25,9 +25,9 @@ export const Counter = (props) => {
             </button>
             <button
                 aria-label="Decrement value"
-                onClick={() => props.fetchData()}
+                onClick={() => props.fetchData(count)}
             >
-            GET DATA
+            GET DATA AGAIN
             </button>
             {loading ? 'Loading...' : props.data.title}
             {error ? error : ''}

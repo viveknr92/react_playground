@@ -2,15 +2,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 import renderer from 'react-test-renderer';
-// import { Link } from 'react-router'
 
 const Link = ({page}) => {
-  return <a href={page}>Facebook</a>
+  return <a href={page}>Instagram</a>
 }
 
 it('renders correctly', () => {
   const tree = renderer
-    .create(<Link page="http://www.instagram.com">Facebook</Link>)
+    .create(<Link page="http://www.instagram.com" />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
