@@ -2,9 +2,7 @@ import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import { increment, decrement, incrementAsync, getData } from '../actions/actionCreator'
 
-export const Counter = (props) => {
-    const { count, fetchData, loading, error } = props
-    // console.log(props)
+export const Counter = ({ count, fetchData, loading, error, decrement, incrementAsync, data }) => {
     useEffect(() => {
         fetchData(count)
     }, [fetchData, count])
@@ -12,24 +10,24 @@ export const Counter = (props) => {
         <div>
             <button
                 aria-label="Increment value"
-                onClick={() => props.incrementAsync(10)}
+                onClick={() => incrementAsync(10)}
             >
             +
             </button>
             <span>{count}</span>
             <button
                 aria-label="Decrement value"
-                onClick={() => props.decrement()}
+                onClick={() => decrement()}
             >
             -
             </button>
             <button
                 aria-label="Decrement value"
-                onClick={() => props.fetchData(count)}
+                onClick={() => fetchData(count)}
             >
             GET DATA AGAIN
             </button>
-            {loading ? 'Loading...' : props.data.title}
+            {loading ? 'Loading...' : data.title}
             {error ? error : ''}
         </div>
     )
@@ -49,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
         increment: () => dispatch(increment()),
         decrement: () => dispatch(decrement()),
         incrementAsync: (amount) => dispatch(incrementAsync(amount)),
-        fetchData: (userId) => dispatch(getData(userId)) 
+        fetchData: (userId) => dispatch(getData(userId))
     }
 }
 

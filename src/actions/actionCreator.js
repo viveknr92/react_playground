@@ -1,4 +1,4 @@
-import { fetchData } from './fetchData';
+import { fetchData, fetchDataWithAxios } from './fetchData';
 
 export const increment = (payload) => {
     return {

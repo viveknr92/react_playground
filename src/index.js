@@ -18,7 +18,7 @@ import rootReducer from './reducers/index'
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-const RouterWrapper = () => {
+const RootComponent = () => {
     return (
         <Provider store={store}>
             <BrowserRouter>
@@ -37,16 +37,16 @@ const RouterWrapper = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <RouterWrapper />
+    <RootComponent />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
 if (module.hot) {
-    module.hot.accept('./Components/App', () => {
+    module.hot.accept('./index', () => {
       ReactDOM.render(
         <React.StrictMode>
-          <App />
+          <RootComponent />
         </React.StrictMode>,
         document.getElementById('root')
       )
