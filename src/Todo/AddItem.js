@@ -8,16 +8,15 @@ const AddItem = ({onAddClick}) => {
     }
     useEffect(() => {
         inputEl.current.focus();
-    }, [])
+    }, [onAddClick])
     return (
         <form onSubmit={(e) => {
             e.preventDefault()
-            e.target.reset()
-            // console.log('form submit event', e)
             onAddClick(text)
+            setText('')
         }}>
-            <input onChange={onTextChange} ref={inputEl} placeholder='Add Item'/>
-            <input type="submit" value="Add Item Button"/>
+            <input value={text} onChange={onTextChange} ref={inputEl} placeholder='Add Item'/>
+            <input type="submit" value="Add Item Button" disabled={!text}/>
         </form>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useEffect, useRef, useState} from 'react'
 import { TodoContext } from './Todo'
 
 const TodoItem = ({item, index}) => {
@@ -31,12 +31,16 @@ const TodoItem = ({item, index}) => {
 
 const UpdateMode = ({ item, onCancel, onUpdate}) => {
     const [itemText, setItemText] = useState(item)
+    const inputEl = useRef(null)
     const onChange = (e) => {
         setItemText(e.target.value)
     }
+    useEffect(() => {
+        inputEl.current.focus()
+    }, [])
     return (
         <>
-            <input value={itemText} onChange={onChange}/>
+            <input value={itemText} onChange={onChange} ref={inputEl}/>
             <button onClick={() => onUpdate(itemText)}>Confirm Update</button>
             <button onClick={() => onCancel()}>Cancel Update</button>
         </>
