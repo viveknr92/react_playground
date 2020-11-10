@@ -28,11 +28,11 @@ const Todo = () => {
 }
 
 const DisplayList = ({list}) => (
-    <div>
+    <ul>
     {list.map((item,i) => (
         <TodoItem key={i} item={item} index={i}/>
     ))}
-   </div>
+   </ul>
 )
 
 export default Todo

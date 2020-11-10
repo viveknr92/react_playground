@@ -2,40 +2,59 @@ import React, {useContext, useState} from 'react'
 import { TodoContext } from './Todo'
 
 const TodoItem = ({item, index}) => {
-    const todoContext = useContext(TodoContext);
+    const todoContext = useContext(TodoContext)
     const [isUpdateMode, setIsUpdateMode] = useState(false)
-    const [itemText, setItemText] = useState(item)
-    const onItemTextChange = (e) => {
-        setItemText(e.target.value)
+    const onUpdate = (text) => {
+        todoContext.update(index, text)
+        setIsUpdateMode(false)
+    }
+    const onCancel = () => {
+        setIsUpdateMode(false)
+    }
+    const onDelete = () => {
+        todoContext.delete(index)
     }
     return (
         <li>
-            {!isUpdateMode ?
-            <>
-                <ItemText item={itemText} />
-                <button onClick={() => todoContext.delete(index)}>Delete Item</button>
-                <button onClick={() => setIsUpdateMode(true)}>Update Item</button>
-            </>
-            :
-            <>
-                <ItemInput item={item} onItemTextChange={onItemTextChange}/>
-                <button onClick={() => {
-                    setIsUpdateMode(false)
-                    todoContext.update(index, itemText)
-                }}>Confirm Update</button>
-                <button onClick={() => setIsUpdateMode(false)}>Cancel Update</button>
-            </>
-            }
+            {!isUpdateMode ? 
+            <ViewMode item={item}
+                        onDelete={onDelete}
+                        setIsUpdateMode={setIsUpdateMode}
+            /> : 
+            <UpdateMode item={item}
+                        onCancel={onCancel}
+                        onUpdate={onUpdate}
+            />}
         </li>
+    )
+}
+
+const UpdateMode = ({ item, onCancel, onUpdate}) => {
+    const [itemText, setItemText] = useState(item)
+    const onChange = (e) => {
+        setItemText(e.target.value)
+    }
+    return (
+        <>
+            <input value={itemText} onChange={onChange}/>
+            <button onClick={() => onUpdate(itemText)}>Confirm Update</button>
+            <button onClick={() => onCancel()}>Cancel Update</button>
+        </>
+    )
+}
+
+const ViewMode = ({item, setIsUpdateMode, onDelete}) => {
+    return (
+        <>
+            <ItemText item={item} />
+            <button onClick={() => onDelete()}>Delete Item</button>
+            <button onClick={() => setIsUpdateMode(true)}>Update Item</button>
+        </>
     )
 }
 
 const ItemText = ({ item }) => (
     <span>{item}</span>
 )
-
-const ItemInput = ({ item, onItemTextChange }) => {
-    return <input defaultValue={item} onChange={onItemTextChange}/>
-}
 
 export default TodoItem
