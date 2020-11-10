@@ -16,7 +16,7 @@ const AddItem = ({onAddClick}) => {
             // console.log('form submit event', e)
             onAddClick(text)
         }}>
-            <input onChange={onTextChange} ref={inputEl}/>
+            <input onChange={onTextChange} ref={inputEl} placeholder='Add Item'/>
             <input type="submit" value="Add Item Button"/>
         </form>
     )

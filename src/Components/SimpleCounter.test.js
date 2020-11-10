@@ -5,6 +5,6 @@ import SimpleCounter from './SimpleCounter'
 
 test('simple counter fireevent', async () => {
     render(<SimpleCounter />)
-    userEvent.click(screen.getByText('+'));
-    await waitForElement(() => screen.getByText('1'));
+    userEvent.click(screen.getByText('+'))
+    await waitForElement(() => screen.getByText('1'))
 })
