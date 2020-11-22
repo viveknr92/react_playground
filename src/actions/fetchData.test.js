@@ -1,6 +1,6 @@
 import { fetchData, fetchDataWithAxios } from './fetchData';
-// jest.mock('fetchDataMock')
-jest.mock('axios')
+jest.mock('../__mocks__/fetchDataMock')
+// jest.mock('axios')
 
 test('call fetchData', async () => {
     const data = await fetchDataWithAxios('https://reqres.in/api/users/2');

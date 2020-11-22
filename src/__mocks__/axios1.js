@@ -1,5 +1,4 @@
 const get = () => {
-  console.log("Mocking axios")
   return Promise.resolve({
     data: {
       data: { 
@@ -8,4 +7,5 @@ const get = () => {
       }
     })
 }
+
 export default get

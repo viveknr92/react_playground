@@ -11,6 +11,7 @@ const Home = () => {
             <Link to='/todo'>Todo App</Link>
             <Link to='/vehicletracker'>Vehicle Tracker</Link>
             <Link to='/simpleCounter'>Simple Counter</Link>
+            <Link to='/dateyear'>Date Year</Link>
         </div>
     )
 }

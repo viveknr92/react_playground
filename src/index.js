@@ -15,6 +15,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/index'
+import DateYear from './DateTime/components/DateYear';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -29,6 +30,7 @@ const RootComponent = () => {
                     <Route path='/todo' component={Todo}></Route>
                     <Route path='/vehicletracker' component={VehicleTracker}></Route>
                     <Route path='/simpleCounter' component={SimpleCounter}></Route>
+                    <Route path='/dateyear' component={DateYear}></Route>
                 </Switch>
             </BrowserRouter>
         </Provider>
