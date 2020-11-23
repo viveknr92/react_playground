@@ -1,5 +1,5 @@
-import axios from 'axios';
-const DATE_JSON_URL = 'https://jsonmock.hackerrank.com/datetime';
+import axios from 'axios'
+const DATE_JSON_URL = 'https://jsonmock.hackerrank.com/datetime'
 
 const getAPIResponse = async () => {
 	// console.log(axios)
