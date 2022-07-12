@@ -9,6 +9,7 @@ import Child from './Components/Child'
 import Home from './Components/Home'
 import Todo from './Todo/Todo'
 import VehicleTracker from './Components/VehicleTracker'
+import { Album } from './Album/Album';
 import SimpleCounter from './Components/SimpleCounter'
 import { Provider } from 'react-redux'
 
@@ -31,6 +32,7 @@ const RootComponent = () => {
                     <Route path='/vehicletracker' component={VehicleTracker}></Route>
                     <Route path='/simpleCounter' component={SimpleCounter}></Route>
                     <Route path='/dateyear' component={DateYear}></Route>
+                    <Route path='/album' component={Album}></Route>
                 </Switch>
             </BrowserRouter>
         </Provider>

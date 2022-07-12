@@ -12,6 +12,7 @@ const Home = () => {
             <Link to='/vehicletracker'>Vehicle Tracker</Link>
             <Link to='/simpleCounter'>Simple Counter</Link>
             <Link to='/dateyear'>Date Year</Link>
+            <Link to='/album'>Album</Link>
         </div>
     )
 }
